@@ -6,6 +6,7 @@ format:
     code-summary: "Click to see the code"
 ---
 
+
 # Data Source & Our Process
 
 1)In this project, we used 2024 forestry data from OGM to see how forests are actually spread across Turkey. We wanted to find out which cities are the greenest and if the results match our common expectations—like expecting the Mediterranean or Black Sea regions to have much higher forest density compared to Central Anatolia. To get the answers, we first imported our Excel file using the readxl package. The data wasn't perfect at first; we had to clean up extra spaces and remove total sum rows. A big part of our work was fixing the city names so they would match our map perfectly—correcting weird typos in the library like "Zinguldak" or "Kinkkale".
@@ -194,7 +195,7 @@ yangin_verisi <- read_excel(excel_yolu, skip = 5, n_max = 31, col_names = FALSE)
 
 yangin_verisi <- yangin_verisi %>%
   mutate(Bolge = recode(Bolge, 
-                        "K.MaraE" = "KahramanmaraE",
+                        "K.Maraş" = "Kahramanmaraş",
                         "Afyon" = "Afyonkarahisar"))
 knitr::kable(yangin_verisi)
 ```

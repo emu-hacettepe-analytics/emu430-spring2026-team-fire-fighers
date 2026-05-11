@@ -2,7 +2,10 @@
 title: "Analysis"
 ---
 
-About this site
+#About this site
+This section presents a comprehensive Exploratory Data Analysis (EDA) of Türkiye's forest dynamics and wildfire patterns over the last two decades. The primary objective of this site is to transform raw environmental data into actionable insights by examining the correlation between forest density, regional climate risks, and human-induced fire triggers.
+
+The data utilized in this study is sourced from the official records of the General Directorate of Forestry (OGM), covering a detailed timeline from 2004 to 2024. Throughout this page, we employ advanced data wrangling techniques and spatial visualizations to uncover historical trends, identify high-risk "hotspots" in the Mediterranean and Aegean belts, and analyze the socio-economic causes behind these ecological disturbances. By bridging the gap between statistical data and environmental narrative, we aim to provide a clear roadmap for future conservation and prevention strategies.
 
 # This is the part in the previous data.qmd file
 ```{r}
