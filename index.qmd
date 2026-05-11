@@ -1,5 +1,5 @@
 ---
-title: "Team XXX"
+title: "Team Firefighters"
 sidebar: false 
 ---
 
@@ -11,14 +11,21 @@ This is our template.
 
 # Team Members
 
-1.  [Anderson Talisca](https://tr.wikipedia.org/wiki/Talisca)
-
-2.  [N'Golo Kanté](https://en.wikipedia.org/wiki/N%27Golo_Kant%C3%A9)
-
-3.  [Mattéo Guendouzi](https://en.wikipedia.org/wiki/Matt%C3%A9o_Guendouzi)
-
-4.  [Marco Asensio](https://tr.wikipedia.org/wiki/Marco_Asensio)
+1. Zeynep Zünbüldere-2230469063 (https://emu-hacettepe-analytics.github.io/emu430-spring2026-zeynepzunbuldere/)
+2. Ömer Can Kaynarca-2220469030 (https://emu-hacettepe-analytics.github.io/emu430-spring2026-omercankaynarca/)
 
 # Project Topic
+In this project, we explore the state of Turkey’s forests by analyzing three interconnected areas: the current forest distribution across 81 provinces as of 2024, the long-term trends in forest fires and burned areas over the last 20 years (2004-2024), and the specific causes behind these fires in recent years. Our goal was to see if our common expectations—like the high density in coastal regions—match the official data, while also uncovering how fire patterns have evolved over time. By cleaning and merging various datasets from OGM, we’ve created a comprehensive spatial and temporal look at Turkey's environmental landscape to better understand both our green resources and the risks they face.
 
 # Data Set
+All the excel sheets that were used taken from this website.
+(https://www.ogm.gov.tr/tr/e-kutuphane/resmi-istatistikler)
+
+#Key Takeaways
+Data Foundation: In this study, we analyzed the 2004–2024 datasets from the General Directorate of Forestry (OGM) to examine forest density, fire frequency, burned areas, and the underlying causes of forest fires across Türkiye.
+
+Fire Trends: Our time-series analysis reveals a steady upward trend in the number of fire incidents. However, the most significant finding is the catastrophic spike in 2021, where the burned area reached approximately 139,503 hectares—a historic outlier.
+
+Regional Risk Profiles: We identified the Aegean and Mediterranean regions as high-risk zones for both fire frequency and severity. In contrast, Central Anatolia and the Black Sea regions are primarily characterized by smaller-scale fires often linked to negligence.
+
+Dominant Causes: A striking portion of fires remains categorized as "Unknown." Among identified causes, "Negligence"—including stubble burning, picnics, and discarded cigarettes—emerges as the primary driver of forest loss.

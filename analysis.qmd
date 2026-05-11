@@ -4,6 +4,435 @@ title: "Analysis"
 
 About this site
 
+# This is the part in the previous data.qmd file
 ```{r}
-1 + 1
+#| message: false
+#| warning: false
+#| results: hold
+
+library(readxl)
+library(tidyverse)
+library(janitor)
+
+orman_dagilimi <- read_excel("~/Desktop/adsız klasör/orman_dagilimi.xlsx", 
+    col_names = FALSE)
+head(orman_dagilimi)
+
+orman_dagilimi <- orman_dagilimi %>% 
+  slice(-(1:5))
+
+final_data <- orman_dagilimi %>%
+  select(
+    sehir = 2, 
+    toplam_alan_ha = 3, 
+    toplam_orman_ha = 6
+  )
+
+final_data <- final_data %>%
+  mutate(
+    toplam_alan_ha = as.numeric(toplam_alan_ha),
+    toplam_orman_ha = as.numeric(toplam_orman_ha)
+  ) %>%
+  mutate(orman_orani = (toplam_orman_ha / toplam_alan_ha)*100)
+knitr::kable(final_data)
 ```
+
+# CREATING THE FOREST SPREAD MAP
+#AI helped finding and creating the map because i didn't know how to do it
+```{r}
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(tidyverse)
+```
+
+# city names in the map package
+```{r}
+turkiye_map <- ne_states(country = "Turkey", returnclass = "sf")
+harita_isimleri <- turkiye_map$name
+print("--- HARİTA PAKETİNDEKİ İSİMLER ---")
+print(harita_isimleri)
+```
+
+# city names in my excel because names were different and couldn't match AI helped
+```{r}
+excel_isimleri <- unique(final_data$sehir)
+print("--- BENİM EXCEL'İMDEKİ İSİMLER ---")
+print(excel_isimleri)
+```
+
+# map from the package
+```{r}
+turkiye_map <- ne_states(country = "turkey", returnclass = "sf")
+```
+
+# city name matching, left side: names in the package, right side: names in the excel, this part was so hard to do because ai wasn't helpful and i had to do it manually
+```{r}
+turkiye_map <- turkiye_map %>%
+  mutate(name_fixed = case_when(
+    name == "Zinguldak"      ~ "Zonguldak",
+    name == "Kinkkale"       ~ "Kırıkkale",
+    name == "K. Maras"       ~ "Kahramanmaraş",
+    name == "Adayaman"       ~ "Adıyaman",
+    name == "Afyonkarahisar" ~ "Afyonkarahisar",
+    name == "Diyarbakir"     ~ "Diyarbakır",
+    name == "Nigde"          ~ "Niğde",
+    name == "Elazig"         ~ "Elazığ",
+    name == "Gumushane"      ~ "Gümüşhane",
+    name == "Sanliurfa"      ~ "Şanlıurfa",
+    name == "Sirnak"         ~ "Şırnak",
+    name == "Cankiri"        ~ "Çankırı",
+    name == "Tekirdag"       ~ "Tekirdağ",
+    name == "Aydin"          ~ "Aydın",
+    name == "Izmir"          ~ "İzmir",
+    name == "Istanbul"       ~ "İstanbul",
+    name == "Usak"           ~ "Uşak",
+    name == "Iğdir"          ~ "Iğdır",
+    name == "Adiyaman"       ~ "Adıyaman",
+    name == "Gümüshane"      ~ "Gümüşhane",
+    name == "Çankiri"        ~ "Çankırı",
+    name == "Mugla"          ~ "Muğla",
+    name == "Agri"           ~ "Ağrı",
+    name == "Mus"            ~ "Muş",
+    name == "Nevsehir"       ~ "Nevşehir",
+    name == "Eskisehir"      ~ "Eskişehir",
+    name == "Balikesir"      ~ "Balıkesir",
+    name == "Kirklareli"     ~ "Kırklareli",
+    name == "Kütahya"        ~ "Kütahya",
+    name == "Kirsehir"       ~ "Kırşehir",
+    name == "Karabük"        ~ "Karabük",
+    name == "Bartın"         ~ "Bartın",
+    name == "Çanakkale"      ~ "Çanakkale",
+    TRUE                     ~ name # Diğerlerini olduğu gibi bırak
+  ))
+```
+
+# clear the gaps
+```{r}
+map_data_final <- final_data %>%
+  filter(sehir != "Türkiye -Turkey") %>%
+  mutate(sehir_join = str_trim(sehir))
+```
+
+# merging the data
+```{r}
+final_map_table <- turkiye_map %>%
+  left_join(map_data_final, by = c("name_fixed" = "sehir_join"))
+```
+
+# drawing the map by the colors red and green, because these colors can be more useful with the visualization of forests
+```{r}
+ggplot(data = final_map_table) +
+  geom_sf(aes(fill = orman_orani)) +
+  scale_fill_gradient(
+    low = "red", 
+    high = "green", 
+    limits = c(0, 100),
+    na.value = "grey90"
+  ) +
+  labs(
+    title = "Türkiye Orman Yoğunluğu Haritası",
+    fill = "Orman %",
+    caption = "Kaynak: OGM 2024"
+  ) +
+  theme_minimal()
+```
+
+
+# FORESTS FIRES NUMBERS AND AREA ANALYSIS BY CITIES
+# This is the part from the previos data.qmd file 
+```{r}
+#| message: false
+#| warning: false
+#| results: hold
+
+library(sf)
+library(tidyverse)
+library(readxl)
+library(scales) 
+
+harita_yolu <- "/Users/zzunb/Downloads/tr-cities.json"
+adet_yolu <- "/Users/zzunb/Downloads/illere_gore_yangin_adet_2004-2024.xlsx"
+alan_yolu <- "/Users/zzunb/Downloads/illere_gore_yanan_alan_2004-2024.xlsx"
+
+tr_map <- read_sf(harita_yolu)
+df_adet_ham <- read_excel(adet_yolu, skip = 3)
+colnames(df_adet_ham)[1] <- "Bolge"
+df_adet_ham <- df_adet_ham %>% 
+  filter(!is.na(Bolge)) %>% 
+  slice(1:(which(Bolge == "Zonguldak"))) %>%
+  mutate(across(-Bolge, ~ suppressWarnings(as.numeric(.))))
+
+df_alan_ham <- read_excel(alan_yolu, skip = 3)
+colnames(df_alan_ham)[1] <- "Bolge"
+df_alan_ham <- df_alan_ham %>% 
+  filter(!is.na(Bolge)) %>% 
+  slice(1:(which(Bolge == "Zonguldak"))) %>%
+  mutate(across(-Bolge, ~ suppressWarnings(as.numeric(.))))
+
+temizle_ve_topla <- function(df) {
+  df_sonuc <- df %>% 
+    filter(!Bolge %in% c("Toplam-Total", "DKMPGM")) %>%
+    mutate(Bolge = recode(Bolge, "K.Maraş" = "Kahramanmaraş", "Afyon" = "Afyonkarahisar")) %>%
+    rowwise() %>%
+    mutate(Toplam_21_Yil = sum(c_across(where(is.numeric)), na.rm = TRUE)) %>%
+    ungroup()
+  
+  return(df_sonuc)
+}
+
+df_adet <- temizle_ve_topla(df_adet_ham) %>% arrange(desc(Toplam_21_Yil))
+df_alan <- temizle_ve_topla(df_alan_ham) %>% arrange(desc(Toplam_21_Yil))
+
+```
+
+# 1. time series analysis/line graphs
+```{r}
+p1 <- df_adet_ham %>%
+  filter(Bolge == "Toplam-Total") %>%
+  pivot_longer(cols = -Bolge, names_to = "Yil", values_to = "Deger") %>%
+  mutate(Yil = as.numeric(Yil)) %>%
+  filter(!is.na(Yil)) %>%
+  ggplot(aes(x = Yil, y = Deger)) +
+  geom_line(color = "#E69F00", size = 1.2) +
+  geom_point(color = "black", size = 2) +
+  geom_smooth(method = "lm", color = "blue", linetype = "dashed", se = FALSE, size = 1) + 
+  scale_x_continuous(breaks = seq(2004, 2024, by = 2)) +
+  theme_minimal() +
+  labs(title = "Yillara Gore Toplam Yangin Adeti (2004-2024)", 
+       subtitle = "Mavi kesik cizgi genel artis/azalis egilimini gosterir.",
+       x = "Yil", y = "Yangin Adeti")
+
+```
+
+# 2. merging map and data 
+```{r}
+p2 <- df_alan_ham %>%
+  filter(Bolge == "Toplam-Total") %>%
+  pivot_longer(cols = -Bolge, names_to = "Yil", values_to = "Deger") %>%
+  mutate(Yil = as.numeric(Yil)) %>%
+  filter(!is.na(Yil)) %>%
+  ggplot(aes(x = Yil, y = Deger)) +
+  geom_line(color = "#D55E00", size = 1.2) +
+  geom_point(color = "black", size = 2) +
+  annotate("text", x = 2016, y = 125000, label = "2021 Yili Dev Yanginlari:\n~139.503 Hektar", color = "red", fontface = "bold") +
+  annotate("curve", x = 2018, y = 125000, xend = 2020.8, yend = 139500, 
+           arrow = arrow(length = unit(0.3, "cm")), curvature = -0.3, color = "red", size = 1) +
+  scale_x_continuous(breaks = seq(2004, 2024, by = 2)) +
+  scale_y_continuous(labels = label_number(big.mark = ".", decimal.mark = ",")) + 
+  theme_minimal() +
+  labs(title = "Yillara Gore Toplam Yanan Alan (2004-2024)", x = "Yil", y = "Hektar Alan")
+
+print(p1)
+print(p2)
+```
+
+# 3.drawing the map-data visualization
+```{r}
+harita_adet <- tr_map %>% left_join(df_adet, by = c("name" = "Bolge"))
+
+g1 <- ggplot(data = harita_adet) +
+  geom_sf(aes(fill = Toplam_21_Yil), color = "black", size = 0.2) +
+  stat_sf_coordinates(aes(label = name), geom = "text", size = 2.2, color = "black", fontface = "bold", check_overlap = TRUE) +
+  scale_fill_gradientn(colors = c("#00BA38", "yellow", "#F8766D", "#B71C1C"), name = "Toplam Adet", na.value = "gray90") +
+  theme_void() +
+  theme(
+    plot.margin = margin(t = 20, r = 20, b = 20, l = 20, unit = "pt"), 
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 14, margin = margin(b = 15)), 
+    plot.caption = element_text(hjust = 1, margin = margin(t = 10), lineheight = 1.2), # SatD1r aralD1DD1 eklendi
+    legend.margin = margin(l = 10, r = 10) 
+  ) +
+  labs(
+    title = "Illere Gore Toplam Yangin Sayisi (2004-2024)", 
+    caption = "Veriler: OGM\nGri renkteki iller icin veri bulunmamaktadir."
+  )
+
+harita_alan <- tr_map %>% left_join(df_alan, by = c("name" = "Bolge"))
+
+g2 <- ggplot(data = harita_alan) +
+  geom_sf(aes(fill = Toplam_21_Yil), color = "black", size = 0.2) +
+  stat_sf_coordinates(aes(label = name), geom = "text", size = 2.2, color = "black", fontface = "bold", check_overlap = TRUE) +
+  scale_fill_gradientn(
+    colors = c("#00BA38", "yellow", "#F8766D", "#B71C1C"), 
+    trans = "pseudo_log", 
+    breaks = c(100, 1000, 10000, 100000), 
+    labels = c("100", "1.000", "10.000", "100.000+"), 
+    name = "Toplam Hektar\n(Log Skala)", 
+    na.value = "gray90"
+  ) +
+  theme_void() +
+  theme(
+    plot.margin = margin(t = 20, r = 20, b = 20, l = 20, unit = "pt"), 
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 14, margin = margin(b = 15)), 
+    plot.caption = element_text(hjust = 1, margin = margin(t = 10), lineheight = 1.2), # SatD1r aralD1DD1 eklendi
+    legend.margin = margin(l = 10, r = 10) 
+  ) +
+  labs(
+    title = "Illere Gore Toplam Yanan Alan (Hektar) (2004-2024)", 
+    caption = "Veriler: OGM\nGri renkteki iller icin veri bulunmamaktadir."
+  )
+
+print(g1)
+print(g2)
+```
+
+
+# FOREST FIRES CAUSING MAIN REASONS
+# This is the part from the previos data.qmd file
+```{r}
+#| message: false
+#| warning: false
+#| results: hold
+
+library(sf)
+library(tidyverse)
+library(readxl)
+
+harita_yolu <- "/Users/zzunb/Downloads/tr-cities.json"
+excel_yolu <- "/Users/zzunb/Downloads/2022-2024_sebep_adet_toplam.xlsx"
+
+tr_map <- read_sf(harita_yolu)
+
+yangin_verisi <- read_excel(excel_yolu, skip = 5, n_max = 31, col_names = FALSE) %>%
+  select(
+    Bolge = 1,
+    Aniz = 2, Coplu = 3, Avcilik = 4, CobanAtesi = 5, Sigara = 6, Piknik = 7, Diger_Ihmal = 8,
+    Teror = 10, Kundaklama = 11, Acma = 12, Diger_Kasit = 13,
+    Enerji = 15, Trafik = 16, Diger_Kaza = 17,
+    Bilinmeyen = 19, Dogal = 20
+  ) %>%
+  mutate(across(-Bolge, ~as.numeric(ifelse(. == "-", "0", .)))) %>%
+  filter(!Bolge %in% c("DKMPGM", "Toplam-Total"))
+
+yangin_verisi <- yangin_verisi %>%
+  mutate(Bolge = recode(Bolge, 
+                        "K.MaraE" = "KahramanmaraE",
+                        "Afyon" = "Afyonkarahisar"))
+```
+
+
+# 1. determining the dominant reason of fires
+```{r}
+baskin_analiz <- yangin_verisi %>%
+  pivot_longer(cols = -Bolge, names_to = "Alt_Sebep", values_to = "Miktar") %>%
+  group_by(Bolge) %>%
+  slice_max(order_by = Miktar, n = 1, with_ties = FALSE) %>%
+  ungroup() %>%
+  # 5. AdD1mdaki recode kD1smD1nD1 Eununla gC<ncelle:
+  mutate(Alt_Sebep = recode(Alt_Sebep, 
+                            "Bilinmeyen" = "Sebebi Bilinmeyen",
+                            "Dogal" = "Dogal (Yildirim)",
+                            "Diger_Ihmal" = "Ihmal(Diger)", # D0sim deDiEti
+                            "Aniz" = "Aniz(Ihmal)",         # D0sim deDiEti
+                            "Diger_Kasit" = "Diger (Kasit)",
+                            "Diger_Kaza" = "Diger (Kaza)",
+                            "CobanAtesi" = "Coban Atesi"))
+```
+
+# 2. seting the colors of the categories 
+```{r}
+renk_paleti <- c(
+  # D0HMAL - Sadece SarD1 ve AC'D1k Turuncu (KD1rmD1zD1dan tamamen baDD1msD1z)
+  "Aniz" = "#FFFFE5", "Coplu" = "#FFF7BC", "Avcilik" = "#FEE391", 
+  "Coban Atesi" = "#FEC44F", "Sigara" = "#FE9929", "Piknik" = "#EC7014", "Diger (Ihmal)" = "#CC4C02",
+  
+  # KASIT - Koyu KD1rmD1zD1 ve Bordo TonlarD1
+  "Teror" = "#FCBBA1", "Kundaklama" = "#FB6A4A", "Acma" = "#CB181D", "Diger (Kasit)" = "#67000D",
+  
+  # KAZA - Saf Mavi TonlarD1
+  "Enerji" = "#DEEBF7", "Trafik" = "#6BAED6", "Diger (Kaza)" = "#08306B",
+  
+  # SEBEBD0 BD0LD0NMEYEN - Mor
+  "Sebebi Bilinmeyen" = "#9467BD",
+  
+  # DODAL - YeEil
+  "Dogal (Yildirim)" = "#2CA02C"
+)
+```
+
+
+# 3. drawing the final map of the causes
+```{r}
+harita_final <- tr_map %>%
+  left_join(baskin_analiz, by = c("name" = "Bolge"))
+
+ggplot(data = harita_final) +
+  geom_sf(aes(fill = Alt_Sebep), color = "black", size = 0.2) +
+  # Il isimleri
+  stat_sf_coordinates(aes(label = name), geom = "text", size = 2.2, color = "black", fontface = "bold", check_overlap = TRUE) +
+  
+  scale_fill_manual(
+    values = c(
+      # IHMAL GRUBU (Sari/Turuncu)
+      "Aniz(Ihmal)" = "#FFFFE5", "Coplu" = "#FFF7BC", "Avcilik" = "#FEE391", 
+      "Coban Atesi" = "#FEC44F", "Sigara" = "#FE9929", "Piknik" = "#FB9A29", 
+      "Ihmal(Diger)" = "#EC7014", 
+      
+      # KASIT GRUBU (Kirmizi)
+      "Teror" = "#FEE5D9", "Kundaklama" = "#FCAE91", "Acma" = "#FB6A4A", "Diger (Kasit)" = "#CB181D",
+      
+      # KAZA GRUBU (Mavi)
+      "Enerji" = "#DEEBF7", "Trafik" = "#6BAED6", "Diger (Kaza)" = "#08306B",
+      
+      # DIGERLERI
+      "Sebebi Bilinmeyen" = "#9467BD",
+      "Dogal (Yildirim)" = "#2CA02C"
+    ), 
+    na.value = "gray90", 
+    name = "Baskin Sebep Detayi"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank(),
+    legend.position = "right",
+    legend.title = element_text(face = "bold", size = 9),
+    legend.text = element_text(size = 8),
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 14),
+    plot.subtitle = element_text(hjust = 0.5, size = 10, face = "italic"),
+    plot.caption = element_text(hjust = 0, size = 8, lineheight = 1.2)
+  ) +
+  labs(
+    title = "Turkiye Orman Yanginlari Baskin Sebep Analizi (2022-2024)",
+    subtitle = "Sari/Turuncu: Ihmal | Kirmizi: Kasit | Mavi: Kaza | Mor: Bilinmeyen | Yesil: Dogal",
+    caption = paste0(
+      "Veriler Orman Genel Mudurlugune aittir.\n\n",
+      "Ihmal(Diger) Kategorisi: Coban/avci atesi, cocuklarin atesle oynamasi, copluk ve tarla temizligi,piknik,sigara gibi nedenleri kapsar.\n\n",
+      "Gri alanlar veri seti disinda kalan illeri temsil eder."
+    )
+  )
+```
+#Key Takeaways
+Data Foundation: In this study, we analyzed the 2004–2024 datasets from the General Directorate of Forestry (OGM) to examine forest density, fire frequency, burned areas, and the underlying causes of forest fires across Türkiye.
+
+Fire Trends: Our time-series analysis reveals a steady upward trend in the number of fire incidents. However, the most significant finding is the catastrophic spike in 2021, where the burned area reached approximately 139,503 hectares—a historic outlier.
+
+Regional Risk Profiles: We identified the Aegean and Mediterranean regions as high-risk zones for both fire frequency and severity. In contrast, Central Anatolia and the Black Sea regions are primarily characterized by smaller-scale fires often linked to negligence.
+
+Dominant Causes: A striking portion of fires remains categorized as "Unknown." Among identified causes, "Negligence"—including stubble burning, picnics, and discarded cigarettes—emerges as the primary driver of forest loss.
+
+#1. Forest Distribution and Spatial Density
+We initiated our analysis by mapping the current state of forest cover across Türkiye. By calculating the ratio of forest area to the total land area for each province, we created a "Forest Density Map." Our visualization utilizes a red-to-green gradient to highlight the stark contrast between the forest-rich regions of the Black Sea and Western Mediterranean and the arid landscapes of Central and Southeastern Anatolia. This spatial understanding is crucial as it defines the "fuel load" available for potential fire incidents.
+
+#2. Temporal Evolution of Forest Fires (2004–2024)
+Over the last two decades, forest fires have evolved from seasonal environmental concerns into a persistent crisis fueled by climate change and human activity. Our time-series analysis shows that while the annual number of fires fluctuates, the general trend is rising. The year 2021 stands out as a devastating "tipping point." During this period, the total burned area skyrocketed, exceeding the combined totals of several previous years. This suggests that while we are facing more fires, the fires themselves are becoming harder to contain and more destructive.
+
+#3. Regional Risk and Impact Assessment
+To better understand the geography of these disasters, we mapped both fire frequency and total burned area. Our findings indicate that provinces like Antalya, Muğla, and İzmir are "hotspots" where fires occur most frequently. However, the impact is not uniform. By using a logarithmic scale for the burned area map, we were able to visualize that a single fire in the Southern coastal belt often results in far greater ecological damage than multiple fires in the North. This is largely due to the flammable nature of Mediterranean vegetation (maquis and pine) and the prevailing wind conditions.
+
+#4. Root Cause Analysis: The Human Element
+One of the most critical aspects of our report is the analysis of fire triggers, categorized into Negligence, Intentional, Accident, Natural, and Unknown. We found that "Negligence"—specifically stubble burning (anız) and picnic-related activities—is a dominant force in many provinces. Perhaps more concerning is the high frequency of "Unknown" causes. This lack of data suggests a need for more sophisticated post-fire investigation techniques. In certain regions, energy transmission line failures (Accidents) also appear as significant contributors, indicating that infrastructure maintenance is as vital as public awareness.
+
+#Recommendations for Fire Prevention
+Based on our data-driven findings, we propose the following strategies to mitigate future forest loss:
+
+Public Awareness Campaigns: Since negligence (picnics, cigarettes, stubble burning) is a leading cause, targeted education programs should be implemented, especially during the high-risk summer months.
+
+Infrastructure Modernization: Our analysis showed "Energy" as a recurring cause. Power lines passing through forest zones must be regularly inspected and modernized to prevent sparks during high winds.
+
+Early Detection Systems: Investment in AI-powered thermal cameras and drone surveillance is essential for the Mediterranean belt to ensure that fires are caught within the first few minutes of ignition.
+
+Strict Regulatory Enforcement: Increasing the legal consequences for stubble burning and unauthorized fire use in forest areas can serve as a deterrent.
+
+Expansion of Post-Fire Investigation: To reduce the "Unknown" category in our data, specialized forensic teams should be established to determine exact fire triggers, allowing for better-targeted prevention policies.

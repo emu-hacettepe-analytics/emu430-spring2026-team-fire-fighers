@@ -1,5 +1,210 @@
 ---
 title: "Data"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Click to see the code"
 ---
 
-Data source: xxx
+# Data Source & Our Process
+
+1)In this project, we used 2024 forestry data from OGM to see how forests are actually spread across Turkey. We wanted to find out which cities are the greenest and if the results match our common expectations—like expecting the Mediterranean or Black Sea regions to have much higher forest density compared to Central Anatolia. To get the answers, we first imported our Excel file using the readxl package. The data wasn't perfect at first; we had to clean up extra spaces and remove total sum rows. A big part of our work was fixing the city names so they would match our map perfectly—correcting weird typos in the library like "Zinguldak" or "Kinkkale".
+
+You can download the final processed dataset here: [proje_verisi.RData](proje_verisi.RData)
+
+
+#installed the packages with the help of Gemini
+```{r}
+library(readxl)
+library(tidyverse)
+library(janitor)
+```
+
+# export the excel sheet to here and view the collumn names to see what they look like or if they change
+```{r}
+orman_dagilimi <- read_excel("~/Desktop/adsız klasör/orman_dagilimi.xlsx", 
+    col_names = FALSE)
+head(orman_dagilimi)
+```
+
+# I wanted the get rid of the first 5 rows because they were unnecessary
+```{r}
+orman_dagilimi <- orman_dagilimi %>% 
+  slice(-(1:5))
+print(orman_dagilimi)
+```
+
+# Selected the collumns that were useful
+```{r}
+final_data <- orman_dagilimi %>%
+  select(
+    sehir = 2, 
+    toplam_alan_ha = 3, 
+    toplam_orman_ha = 6
+  )
+```
+  
+
+# forced the characters to be a numeric and then added a new collumn to see the ratio of the forests by the city
+```{r}
+final_data <- final_data %>%
+  mutate(
+    toplam_alan_ha = as.numeric(toplam_alan_ha),
+    toplam_orman_ha = as.numeric(toplam_orman_ha)
+  ) %>%
+  mutate(orman_orani = (toplam_orman_ha / toplam_alan_ha)*100)
+knitr::kable(final_data)
+```
+  
+# wanted to see the top 5 greenest city an suprised by the outcome because i was expecting Antalya
+```{r}
+top_5_sehir <- final_data %>%
+  # Ecluded Türkiye because it is not a city
+  filter(sehir != "TÜRKİYE", sehir != "Türkiye") %>%
+  # desc() sorted the collumns
+  arrange(desc(orman_orani)) %>%
+  # To find the top 5 city
+  head(5)  
+print(top_5_sehir)
+```
+
+#plotting a histogram, i wanted to see it more visualized
+```{r}
+library(ggplot2)
+library(dplyr)
+```
+
+# I wanted to see all the cities but top 20 cities otherwise we cannot see the datas clearly
+```{r}
+plot_data <- final_data %>%
+  arrange(desc(orman_orani)) %>%
+  slice(1:20) # only top 20 cities
+```
+
+# creation of the histogram with the help of colors, didn't make the Y axis to the 100 to see more clearly
+```{r}
+ggplot(plot_data, aes(x = reorder(sehir, -orman_orani), y = orman_orani)) +
+  geom_col(fill = "pink", color = "hotpink") + 
+  labs(
+    title = "Türkiye'nin Orman Yoğunluğu En Yüksek 20 İli",
+    subtitle = "Orman Alanı / Toplam Yüzölçümü (%)",
+    x = "Şehirler",
+    y = "Yüzde (%)",
+    caption = "Kaynak: OGM 2024"
+  ) +
+  theme_minimal() +
+  # to make letter size smaller
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 9),
+    panel.grid.major.x = element_blank() # AI helped in this part to make the verticle lines invisible
+  )
+```
+
+
+2)For the temporal part of our analysis, we focused on forest fire trends and the total extent of burned areas over the last two decades. Our primary expectation was to see the Mediterranean coast as the most affected region, given its climate and high vegetation density. We wanted to see if the data confirms this regional risk and how the numbers have fluctuated over the years. To prepare this section, we processed long-term statistics from OGM, ensuring the time-series data was consistent and free of missing values. This allowed us to compare our "common knowledge" about Mediterranean fire risks with the actual historical records.
+
+# FORESTS FIRES NUMBERS AND AREA ANALYSIS BY CITIES
+# 1.installing packages
+```{r}
+library(sf)
+library(tidyverse)
+library(readxl)
+library(scales) 
+```
+
+# 2. introducing the file paths
+```{r}
+harita_yolu <- "/Users/zzunb/Downloads/tr-cities.json"
+adet_yolu <- "/Users/zzunb/Downloads/illere_gore_yangin_adet_2004-2024.xlsx"
+alan_yolu <- "/Users/zzunb/Downloads/illere_gore_yanan_alan_2004-2024.xlsx"
+```
+
+# 3. reading data and type conversion
+```{r}
+tr_map <- read_sf(harita_yolu)
+df_adet_ham <- read_excel(adet_yolu, skip = 3)
+colnames(df_adet_ham)[1] <- "Bolge"
+df_adet_ham <- df_adet_ham %>% 
+  filter(!is.na(Bolge)) %>% 
+  slice(1:(which(Bolge == "Zonguldak"))) %>%
+  mutate(across(-Bolge, ~ suppressWarnings(as.numeric(.))))
+
+df_alan_ham <- read_excel(alan_yolu, skip = 3)
+colnames(df_alan_ham)[1] <- "Bolge"
+df_alan_ham <- df_alan_ham %>% 
+  filter(!is.na(Bolge)) %>% 
+  slice(1:(which(Bolge == "Zonguldak"))) %>%
+  mutate(across(-Bolge, ~ suppressWarnings(as.numeric(.))))
+```
+
+# 4. data cleaning calculating totals (AI help)
+```{r}
+temizle_ve_topla <- function(df) {
+  df_sonuc <- df %>% 
+    filter(!Bolge %in% c("Toplam-Total", "DKMPGM")) %>%
+    mutate(Bolge = recode(Bolge, "K.Maraş" = "Kahramanmaraş", "Afyon" = "Afyonkarahisar")) %>%
+    rowwise() %>%
+    mutate(Toplam_21_Yil = sum(c_across(where(is.numeric)), na.rm = TRUE)) %>%
+    ungroup()
+  
+  return(df_sonuc)
+}
+
+df_adet <- temizle_ve_topla(df_adet_ham) %>% arrange(desc(Toplam_21_Yil))
+df_alan <- temizle_ve_topla(df_alan_ham) %>% arrange(desc(Toplam_21_Yil))
+
+print("--- YANGIN ADETLERİ ---")
+knitr::kable(df_adet)
+
+print("--- YANAN ALANLAR ---")
+knitr::kable(df_alan)
+```
+
+
+3)In the final part of our data preparation, we focused on the specific causes behind forest fires in recent years. Our main expectation was to find that negligence and human error—such as stubble burning or unattended campfires—are the leading drivers of these incidents. We wanted to analyze the categorical breakdown of these causes to see how much of the damage could have been prevented through better awareness. To make this data ready for analysis, we categorized the OGM statistics for the 2022-2024 period, ensuring the labels were clear and consistent. This step was crucial for us to move beyond just looking at the "where" and "when" of fires, and start understanding the "why."
+
+# FOREST FIRES CAUSING MAIN REASONS
+# 1. loading packages
+```{r}
+library(sf)
+library(tidyverse)
+library(readxl)
+```
+
+# 2. defining file paths
+```{r}
+harita_yolu <- "/Users/zzunb/Downloads/tr-cities.json"
+excel_yolu <- "/Users/zzunb/Downloads/2022-2024_sebep_adet_toplam.xlsx"
+```
+
+# 3. reading the data
+```{r}
+tr_map <- read_sf(harita_yolu)
+
+yangin_verisi <- read_excel(excel_yolu, skip = 5, n_max = 31, col_names = FALSE) %>%
+  select(
+    Bolge = 1,
+    Aniz = 2, Coplu = 3, Avcilik = 4, CobanAtesi = 5, Sigara = 6, Piknik = 7, Diger_Ihmal = 8,
+    Teror = 10, Kundaklama = 11, Acma = 12, Diger_Kasit = 13,
+    Enerji = 15, Trafik = 16, Diger_Kaza = 17,
+    Bilinmeyen = 19, Dogal = 20
+  ) %>%
+  mutate(across(-Bolge, ~as.numeric(ifelse(. == "-", "0", .)))) %>%
+  filter(!Bolge %in% c("DKMPGM", "Toplam-Total"))
+
+yangin_verisi <- yangin_verisi %>%
+  mutate(Bolge = recode(Bolge, 
+                        "K.MaraE" = "KahramanmaraE",
+                        "Afyon" = "Afyonkarahisar"))
+knitr::kable(yangin_verisi)
+```
+
+```{r}
+#| label: save-data
+#| include: false
+
+save(final_data, top_5_sehir, df_adet, df_alan, yangin_verisi, file = "proje_verisi.RData")
+```
+  
+#Outcome
+It was suprising for us to learn that Karabük is the greenest city in Türkiye. We knew the eastern region was arid, so seeing that on the map wasn't surprising. Similarly, it was to be expected that the Mediterranean region would appear greener on the map due to its climate. Muğla is the city with most fires, it was predictable because in the summer months its all we see in the news. However, in terms of area, Antalya ranks first by a large margin. Finally, we saved everything in an .RData file so anyone can easily run my analysis and see the results for themselves.
