@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.9.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>xxx’ Project Lab - Analysis</title>
+<title>Analysis – Zeynep and Ömer’s Project Lab</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -21,8 +24,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -64,17 +68,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-b6a8276bf55561bdbc268162d41bd1f7.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a8da12e74b29c2e7b17644f84b91567b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-b6a8276bf55561bdbc268162d41bd1f7.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5373ec10d6f248acb6b126f2417a2fc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ef3cb6f7cc291f7fad4df2f8de1605a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5373ec10d6f248acb6b126f2417a2fc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,7 +114,169 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="floating nav-fixed">
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -115,11 +284,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">xxx’ Project Lab</span>
+    <span class="navbar-title">Zeynep and Ömer’s Project Lab</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -138,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
     <a href="https://twitter.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -149,14 +318,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#this-is-the-part-in-the-previous-data.qmd-file" id="toc-this-is-the-part-in-the-previous-data.qmd-file" class="nav-link active" data-scroll-target="#this-is-the-part-in-the-previous-data.qmd-file">This is the part in the previous data.qmd file</a></li>
+  <li><a href="#creating-the-forest-spread-map" id="toc-creating-the-forest-spread-map" class="nav-link" data-scroll-target="#creating-the-forest-spread-map">CREATING THE FOREST SPREAD MAP</a></li>
+  <li><a href="#city-names-in-the-map-package" id="toc-city-names-in-the-map-package" class="nav-link" data-scroll-target="#city-names-in-the-map-package">city names in the map package</a></li>
+  <li><a href="#city-names-in-my-excel-because-names-were-different-and-couldnt-match-ai-helped" id="toc-city-names-in-my-excel-because-names-were-different-and-couldnt-match-ai-helped" class="nav-link" data-scroll-target="#city-names-in-my-excel-because-names-were-different-and-couldnt-match-ai-helped">city names in my excel because names were different and couldn’t match AI helped</a></li>
+  <li><a href="#map-from-the-package" id="toc-map-from-the-package" class="nav-link" data-scroll-target="#map-from-the-package">map from the package</a></li>
+  <li><a href="#city-name-matching-left-side-names-in-the-package-right-side-names-in-the-excel-this-part-was-so-hard-to-do-because-ai-wasnt-helpful-and-i-had-to-do-it-manually" id="toc-city-name-matching-left-side-names-in-the-package-right-side-names-in-the-excel-this-part-was-so-hard-to-do-because-ai-wasnt-helpful-and-i-had-to-do-it-manually" class="nav-link" data-scroll-target="#city-name-matching-left-side-names-in-the-package-right-side-names-in-the-excel-this-part-was-so-hard-to-do-because-ai-wasnt-helpful-and-i-had-to-do-it-manually">city name matching, left side: names in the package, right side: names in the excel, this part was so hard to do because ai wasn’t helpful and i had to do it manually</a></li>
+  <li><a href="#clear-the-gaps" id="toc-clear-the-gaps" class="nav-link" data-scroll-target="#clear-the-gaps">clear the gaps</a></li>
+  <li><a href="#merging-the-data" id="toc-merging-the-data" class="nav-link" data-scroll-target="#merging-the-data">merging the data</a></li>
+  <li><a href="#drawing-the-map-by-the-colors-red-and-green-because-these-colors-can-be-more-useful-with-the-visualization-of-forests" id="toc-drawing-the-map-by-the-colors-red-and-green-because-these-colors-can-be-more-useful-with-the-visualization-of-forests" class="nav-link" data-scroll-target="#drawing-the-map-by-the-colors-red-and-green-because-these-colors-can-be-more-useful-with-the-visualization-of-forests">drawing the map by the colors red and green, because these colors can be more useful with the visualization of forests</a></li>
+  <li><a href="#forests-fires-numbers-and-area-analysis-by-cities" id="toc-forests-fires-numbers-and-area-analysis-by-cities" class="nav-link" data-scroll-target="#forests-fires-numbers-and-area-analysis-by-cities">FORESTS FIRES NUMBERS AND AREA ANALYSIS BY CITIES</a></li>
+  <li><a href="#this-is-the-part-from-the-previos-data.qmd-file" id="toc-this-is-the-part-from-the-previos-data.qmd-file" class="nav-link" data-scroll-target="#this-is-the-part-from-the-previos-data.qmd-file">This is the part from the previos data.qmd file</a></li>
+  <li><a href="#time-series-analysisline-graphs" id="toc-time-series-analysisline-graphs" class="nav-link" data-scroll-target="#time-series-analysisline-graphs">1. time series analysis/line graphs</a></li>
+  <li><a href="#merging-map-and-data" id="toc-merging-map-and-data" class="nav-link" data-scroll-target="#merging-map-and-data">2. merging map and data</a></li>
+  <li><a href="#drawing-the-map-data-visualization" id="toc-drawing-the-map-data-visualization" class="nav-link" data-scroll-target="#drawing-the-map-data-visualization">3.drawing the map-data visualization</a></li>
+  <li><a href="#forest-fires-causing-main-reasons" id="toc-forest-fires-causing-main-reasons" class="nav-link" data-scroll-target="#forest-fires-causing-main-reasons">FOREST FIRES CAUSING MAIN REASONS</a></li>
+  <li><a href="#this-is-the-part-from-the-previos-data.qmd-file-1" id="toc-this-is-the-part-from-the-previos-data.qmd-file-1" class="nav-link" data-scroll-target="#this-is-the-part-from-the-previos-data.qmd-file-1">This is the part from the previos data.qmd file</a></li>
+  <li><a href="#determining-the-dominant-reason-of-fires" id="toc-determining-the-dominant-reason-of-fires" class="nav-link" data-scroll-target="#determining-the-dominant-reason-of-fires">1. determining the dominant reason of fires</a></li>
+  <li><a href="#seting-the-colors-of-the-categories" id="toc-seting-the-colors-of-the-categories" class="nav-link" data-scroll-target="#seting-the-colors-of-the-categories">2. seting the colors of the categories</a></li>
+  <li><a href="#drawing-the-final-map-of-the-causes" id="toc-drawing-the-final-map-of-the-causes" class="nav-link" data-scroll-target="#drawing-the-final-map-of-the-causes">3. drawing the final map of the causes</a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -177,199 +371,1150 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>About this site</p>
+<p>#About this site This section presents a comprehensive Exploratory Data Analysis (EDA) of Türkiye’s forest dynamics and wildfire patterns over the last two decades. The primary objective of this site is to transform raw environmental data into actionable insights by examining the correlation between forest density, regional climate risks, and human-induced fire triggers.</p>
+<p>The data utilized in this study is sourced from the official records of the General Directorate of Forestry (OGM), covering a detailed timeline from 2004 to 2024. Throughout this page, we employ advanced data wrangling techniques and spatial visualizations to uncover historical trends, identify high-risk “hotspots” in the Mediterranean and Aegean belts, and analyze the socio-economic causes behind these ecological disturbances. By bridging the gap between statistical data and environmental narrative, we aim to provide a clear roadmap for future conservation and prevention strategies.</p>
+<section id="this-is-the-part-in-the-previous-data.qmd-file" class="level1">
+<h1>This is the part in the previous data.qmd file</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>orman_dagilimi <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"~/Desktop/adsız klasör/orman_dagilimi.xlsx"</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(orman_dagilimi)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>orman_dagilimi <span class="ot">&lt;-</span> orman_dagilimi <span class="sc">%&gt;%</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>final_data <span class="ot">&lt;-</span> orman_dagilimi <span class="sc">%&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">sehir =</span> <span class="dv">2</span>, </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">toplam_alan_ha =</span> <span class="dv">3</span>, </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">toplam_orman_ha =</span> <span class="dv">6</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>final_data <span class="ot">&lt;-</span> final_data <span class="sc">%&gt;%</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">toplam_alan_ha =</span> <span class="fu">as.numeric</span>(toplam_alan_ha),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">toplam_orman_ha =</span> <span class="fu">as.numeric</span>(toplam_orman_ha)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">orman_orani =</span> (toplam_orman_ha <span class="sc">/</span> toplam_alan_ha)<span class="sc">*</span><span class="dv">100</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(final_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code># A tibble: 6 × 14
+  ...1   ...2  ...3  ...4  ...5  ...6  ...7  ...8  ...9  ...10 ...11 ...12 ...13
+  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;lgl&gt; &lt;chr&gt; &lt;chr&gt;
+1 1.6 O… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  NA    &lt;NA&gt;  &lt;NA&gt; 
+2 Distr… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  NA    &lt;NA&gt;  &lt;NA&gt; 
+3 &lt;NA&gt;   &lt;NA&gt;  İl G… Orma… &lt;NA&gt;  &lt;NA&gt;  Orma… Serv… &lt;NA&gt;  &lt;NA&gt;  NA    Artı… &lt;NA&gt; 
+4 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;  Norm… Boşl… Topl… &lt;NA&gt;  Norm… Boşl… Topl… NA    Norm… Boşl…
+5 İBBS(… &lt;NA&gt;  Hekt… ha    ha    ha    %     m³    m³    m³    NA    m³    m³   
+6 TR     Türk… 7800… 1381… 9549… 2336… 29.9… 1735… 6297… 1798… NA    4900… 1951…
+# ℹ 1 more variable: ...14 &lt;chr&gt;</code></pre>
+</div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">sehir</th>
+<th style="text-align: right;">toplam_alan_ha</th>
+<th style="text-align: right;">toplam_orman_ha</th>
+<th style="text-align: right;">orman_orani</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Türkiye -Turkey</td>
+<td style="text-align: right;">78004644</td>
+<td style="text-align: right;">23363084</td>
+<td style="text-align: right;">29.9508886</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">İstanbul</td>
+<td style="text-align: right;">541609</td>
+<td style="text-align: right;">240688</td>
+<td style="text-align: right;">44.4394388</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tekirdağ</td>
+<td style="text-align: right;">628510</td>
+<td style="text-align: right;">101174</td>
+<td style="text-align: right;">16.0974368</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Edirne</td>
+<td style="text-align: right;">617386</td>
+<td style="text-align: right;">103014</td>
+<td style="text-align: right;">16.6855096</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kırklareli</td>
+<td style="text-align: right;">641501</td>
+<td style="text-align: right;">254124</td>
+<td style="text-align: right;">39.6139679</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Balıkesir</td>
+<td style="text-align: right;">1460268</td>
+<td style="text-align: right;">632405</td>
+<td style="text-align: right;">43.3074614</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Çanakkale</td>
+<td style="text-align: right;">1000510</td>
+<td style="text-align: right;">480253</td>
+<td style="text-align: right;">48.0008196</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">İzmir</td>
+<td style="text-align: right;">1182170</td>
+<td style="text-align: right;">478547</td>
+<td style="text-align: right;">40.4803878</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aydın</td>
+<td style="text-align: right;">822661</td>
+<td style="text-align: right;">326941</td>
+<td style="text-align: right;">39.7418864</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Denizli</td>
+<td style="text-align: right;">1217993</td>
+<td style="text-align: right;">588672</td>
+<td style="text-align: right;">48.3313122</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Muğla</td>
+<td style="text-align: right;">1227859</td>
+<td style="text-align: right;">830358</td>
+<td style="text-align: right;">67.6264946</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manisa</td>
+<td style="text-align: right;">1332567</td>
+<td style="text-align: right;">539337</td>
+<td style="text-align: right;">40.4735372</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Afyonkarahisar</td>
+<td style="text-align: right;">1406710</td>
+<td style="text-align: right;">271334</td>
+<td style="text-align: right;">19.2885527</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kütahya</td>
+<td style="text-align: right;">1165137</td>
+<td style="text-align: right;">654518</td>
+<td style="text-align: right;">56.1751966</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Uşak</td>
+<td style="text-align: right;">553937</td>
+<td style="text-align: right;">223496</td>
+<td style="text-align: right;">40.3468264</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bursa</td>
+<td style="text-align: right;">1079544</td>
+<td style="text-align: right;">483542</td>
+<td style="text-align: right;">44.7913193</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Eskişehir</td>
+<td style="text-align: right;">1419998</td>
+<td style="text-align: right;">410057</td>
+<td style="text-align: right;">28.8772942</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bilecik</td>
+<td style="text-align: right;">419565</td>
+<td style="text-align: right;">240252</td>
+<td style="text-align: right;">57.2621644</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kocaeli</td>
+<td style="text-align: right;">337426</td>
+<td style="text-align: right;">143227</td>
+<td style="text-align: right;">42.4469365</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sakarya</td>
+<td style="text-align: right;">488650</td>
+<td style="text-align: right;">208226</td>
+<td style="text-align: right;">42.6125038</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Düzce</td>
+<td style="text-align: right;">241092</td>
+<td style="text-align: right;">133203</td>
+<td style="text-align: right;">55.2498631</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bolu</td>
+<td style="text-align: right;">819169</td>
+<td style="text-align: right;">539963</td>
+<td style="text-align: right;">65.9159465</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yalova</td>
+<td style="text-align: right;">79192</td>
+<td style="text-align: right;">47570</td>
+<td style="text-align: right;">60.0691989</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ankara</td>
+<td style="text-align: right;">2577976</td>
+<td style="text-align: right;">473229</td>
+<td style="text-align: right;">18.3566100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Konya</td>
+<td style="text-align: right;">3957121</td>
+<td style="text-align: right;">643068</td>
+<td style="text-align: right;">16.2509056</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Karaman</td>
+<td style="text-align: right;">999953</td>
+<td style="text-align: right;">212488</td>
+<td style="text-align: right;">21.2497987</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Antalya</td>
+<td style="text-align: right;">2061764</td>
+<td style="text-align: right;">1180241</td>
+<td style="text-align: right;">57.2442336</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Isparta</td>
+<td style="text-align: right;">873283</td>
+<td style="text-align: right;">404922</td>
+<td style="text-align: right;">46.3677868</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Burdur</td>
+<td style="text-align: right;">698630</td>
+<td style="text-align: right;">335719</td>
+<td style="text-align: right;">48.0539055</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adana</td>
+<td style="text-align: right;">1417417</td>
+<td style="text-align: right;">593660</td>
+<td style="text-align: right;">41.8832284</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mersin</td>
+<td style="text-align: right;">1563068</td>
+<td style="text-align: right;">835534</td>
+<td style="text-align: right;">53.4547441</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hatay</td>
+<td style="text-align: right;">546954</td>
+<td style="text-align: right;">208067</td>
+<td style="text-align: right;">38.0410418</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kahramanmaraş</td>
+<td style="text-align: right;">1433300</td>
+<td style="text-align: right;">521413</td>
+<td style="text-align: right;">36.3784972</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Osmaniye</td>
+<td style="text-align: right;">331318</td>
+<td style="text-align: right;">156228</td>
+<td style="text-align: right;">47.1534900</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kırıkkale</td>
+<td style="text-align: right;">447147</td>
+<td style="text-align: right;">70286</td>
+<td style="text-align: right;">15.7187681</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aksaray</td>
+<td style="text-align: right;">780843</td>
+<td style="text-align: right;">23469</td>
+<td style="text-align: right;">3.0055978</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Niğde</td>
+<td style="text-align: right;">717237</td>
+<td style="text-align: right;">60026</td>
+<td style="text-align: right;">8.3690607</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nevşehir</td>
+<td style="text-align: right;">517365</td>
+<td style="text-align: right;">14938</td>
+<td style="text-align: right;">2.8873233</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kırşehir</td>
+<td style="text-align: right;">669005</td>
+<td style="text-align: right;">43668</td>
+<td style="text-align: right;">6.5273055</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kayseri</td>
+<td style="text-align: right;">1742082</td>
+<td style="text-align: right;">166864</td>
+<td style="text-align: right;">9.5784240</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sivas</td>
+<td style="text-align: right;">2819148</td>
+<td style="text-align: right;">503469</td>
+<td style="text-align: right;">17.8589063</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yozgat</td>
+<td style="text-align: right;">1370370</td>
+<td style="text-align: right;">275956</td>
+<td style="text-align: right;">20.1373352</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zonguldak</td>
+<td style="text-align: right;">346160</td>
+<td style="text-align: right;">201521</td>
+<td style="text-align: right;">58.2161428</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Karabük</td>
+<td style="text-align: right;">389553</td>
+<td style="text-align: right;">287761</td>
+<td style="text-align: right;">73.8695376</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bartın</td>
+<td style="text-align: right;">228576</td>
+<td style="text-align: right;">133531</td>
+<td style="text-align: right;">58.4186441</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kastamonu</td>
+<td style="text-align: right;">1320561</td>
+<td style="text-align: right;">876314</td>
+<td style="text-align: right;">66.3592216</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Çankırı</td>
+<td style="text-align: right;">769942</td>
+<td style="text-align: right;">204541</td>
+<td style="text-align: right;">26.5657673</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinop</td>
+<td style="text-align: right;">572565</td>
+<td style="text-align: right;">367096</td>
+<td style="text-align: right;">64.1142927</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Samsun</td>
+<td style="text-align: right;">975104</td>
+<td style="text-align: right;">389500</td>
+<td style="text-align: right;">39.9444572</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tokat</td>
+<td style="text-align: right;">999067</td>
+<td style="text-align: right;">478379</td>
+<td style="text-align: right;">47.8825744</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Çorum</td>
+<td style="text-align: right;">1253797</td>
+<td style="text-align: right;">474887</td>
+<td style="text-align: right;">37.8759081</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Amasya</td>
+<td style="text-align: right;">560474</td>
+<td style="text-align: right;">220681</td>
+<td style="text-align: right;">39.3739942</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Trabzon</td>
+<td style="text-align: right;">521299</td>
+<td style="text-align: right;">182543</td>
+<td style="text-align: right;">35.0169480</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ordu</td>
+<td style="text-align: right;">587114</td>
+<td style="text-align: right;">202896</td>
+<td style="text-align: right;">34.5581948</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Giresun</td>
+<td style="text-align: right;">711632</td>
+<td style="text-align: right;">258153</td>
+<td style="text-align: right;">36.2761933</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rize</td>
+<td style="text-align: right;">383729</td>
+<td style="text-align: right;">174297</td>
+<td style="text-align: right;">45.4218993</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Artvin</td>
+<td style="text-align: right;">710973</td>
+<td style="text-align: right;">417016</td>
+<td style="text-align: right;">58.6542668</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gümüşhane</td>
+<td style="text-align: right;">591592</td>
+<td style="text-align: right;">239577</td>
+<td style="text-align: right;">40.4969979</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Erzurum</td>
+<td style="text-align: right;">2470413</td>
+<td style="text-align: right;">289341</td>
+<td style="text-align: right;">11.7122522</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Erzincan</td>
+<td style="text-align: right;">1179862</td>
+<td style="text-align: right;">259181</td>
+<td style="text-align: right;">21.9670606</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bayburt</td>
+<td style="text-align: right;">363809</td>
+<td style="text-align: right;">29793</td>
+<td style="text-align: right;">8.1891872</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ağrı</td>
+<td style="text-align: right;">1087975</td>
+<td style="text-align: right;">5320</td>
+<td style="text-align: right;">0.4889818</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kars</td>
+<td style="text-align: right;">808808</td>
+<td style="text-align: right;">55108</td>
+<td style="text-align: right;">6.8134835</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Iğdır</td>
+<td style="text-align: right;">534005</td>
+<td style="text-align: right;">2974</td>
+<td style="text-align: right;">0.5569236</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ardahan</td>
+<td style="text-align: right;">547671</td>
+<td style="text-align: right;">43289</td>
+<td style="text-align: right;">7.9041980</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Malatya</td>
+<td style="text-align: right;">1263081</td>
+<td style="text-align: right;">218748</td>
+<td style="text-align: right;">17.3186043</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Elazığ</td>
+<td style="text-align: right;">913111</td>
+<td style="text-align: right;">187013</td>
+<td style="text-align: right;">20.4808616</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bingöl</td>
+<td style="text-align: right;">805637</td>
+<td style="text-align: right;">266338</td>
+<td style="text-align: right;">33.0593059</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tunceli</td>
+<td style="text-align: right;">775188</td>
+<td style="text-align: right;">271305</td>
+<td style="text-align: right;">34.9986068</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Van</td>
+<td style="text-align: right;">1898097</td>
+<td style="text-align: right;">45141</td>
+<td style="text-align: right;">2.3782241</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Muş</td>
+<td style="text-align: right;">884686</td>
+<td style="text-align: right;">78426</td>
+<td style="text-align: right;">8.8648402</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bitlis</td>
+<td style="text-align: right;">1018997</td>
+<td style="text-align: right;">180237</td>
+<td style="text-align: right;">17.6876870</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hakkari</td>
+<td style="text-align: right;">753662</td>
+<td style="text-align: right;">179847</td>
+<td style="text-align: right;">23.8630845</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gaziantep</td>
+<td style="text-align: right;">688660</td>
+<td style="text-align: right;">112617</td>
+<td style="text-align: right;">16.3530625</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adıyaman</td>
+<td style="text-align: right;">731084</td>
+<td style="text-align: right;">159234</td>
+<td style="text-align: right;">21.7805341</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kilis</td>
+<td style="text-align: right;">131457</td>
+<td style="text-align: right;">27032</td>
+<td style="text-align: right;">20.5633781</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Şanlıurfa</td>
+<td style="text-align: right;">1919798</td>
+<td style="text-align: right;">14850</td>
+<td style="text-align: right;">0.7735189</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Diyarbakır</td>
+<td style="text-align: right;">1516918</td>
+<td style="text-align: right;">325359</td>
+<td style="text-align: right;">21.4486874</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mardin</td>
+<td style="text-align: right;">874277</td>
+<td style="text-align: right;">204804</td>
+<td style="text-align: right;">23.4255276</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Batman</td>
+<td style="text-align: right;">425240</td>
+<td style="text-align: right;">114919</td>
+<td style="text-align: right;">27.0245038</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Şırnak</td>
+<td style="text-align: right;">672427</td>
+<td style="text-align: right;">297105</td>
+<td style="text-align: right;">44.1839783</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Siirt</td>
+<td style="text-align: right;">610208</td>
+<td style="text-align: right;">232264</td>
+<td style="text-align: right;">38.0630867</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
+</section>
+<section id="creating-the-forest-spread-map" class="level1">
+<h1>CREATING THE FOREST SPREAD MAP</h1>
+<p>#AI helped finding and creating the map because i didn’t know how to do it</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.13.0, GDAL 3.8.5, PROJ 9.5.1; sf_use_s2() is TRUE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearthdata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'rnaturalearthdata'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:rnaturalearth':
+
+    countries110</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="city-names-in-the-map-package" class="level1">
+<h1>city names in the map package</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>turkiye_map <span class="ot">&lt;-</span> <span class="fu">ne_states</span>(<span class="at">country =</span> <span class="st">"Turkey"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>harita_isimleri <span class="ot">&lt;-</span> turkiye_map<span class="sc">$</span>name</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"--- HARİTA PAKETİNDEKİ İSİMLER ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "--- HARİTA PAKETİNDEKİ İSİMLER ---"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(harita_isimleri)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Ardahan"        "Artvin"         "Sirnak"         "Hakkari"       
+ [5] "Iğdir"          "Agri"           "Van"            "Kirklareli"    
+ [9] "Edirne"         "Kars"           "Mardin"         "Sanliurfa"     
+[13] "Kilis"          "Gaziantep"      "Hatay"          "Istanbul"      
+[17] "Tekirdag"       "Çanakkale"      "Rize"           "Trabzon"       
+[21] "Giresun"        "Ordu"           "Samsun"         "Sinop"         
+[25] "Kastamonu"      "Bartın"         "Zinguldak"      "Düzce"         
+[29] "Sakarya"        "Kocaeli"        "Yalova"         "Bursa"         
+[33] "Balikesir"      "Izmir"          "Aydin"          "Mugla"         
+[37] "Antalya"        "Mersin"         "Adana"          "Bolu"          
+[41] "Ankara"         "Bilecik"        "Eskisehir"      "Çankiri"       
+[45] "Karabük"        "Tokat"          "Sivas"          "Çorum"         
+[49] "Amasya"         "Kütahya"        "Konya"          "Karaman"       
+[53] "Nigde"          "Kayseri"        "Isparta"        "Manisa"        
+[57] "Denizli"        "Burdur"         "Aksaray"        "Nevsehir"      
+[61] "Yozgat"         "Kirsehir"       "Usak"           "Erzincan"      
+[65] "Tunceli"        "Afyonkarahisar" "Kinkkale"       "K. Maras"      
+[69] "Mus"            "Erzurum"        "Malatya"        "Elazig"        
+[73] "Bitlis"         "Bingöl"         "Osmaniye"       "Adiyaman"      
+[77] "Diyarbakir"     "Batman"         "Siirt"          "Bayburt"       
+[81] "Gümüshane"     </code></pre>
+</div>
+</div>
+</section>
+<section id="city-names-in-my-excel-because-names-were-different-and-couldnt-match-ai-helped" class="level1">
+<h1>city names in my excel because names were different and couldn’t match AI helped</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>excel_isimleri <span class="ot">&lt;-</span> <span class="fu">unique</span>(final_data<span class="sc">$</span>sehir)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"--- BENİM EXCEL'İMDEKİ İSİMLER ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "--- BENİM EXCEL'İMDEKİ İSİMLER ---"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(excel_isimleri)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Türkiye -Turkey" "İstanbul"        "Tekirdağ"        "Edirne"         
+ [5] "Kırklareli"      "Balıkesir"       "Çanakkale"       "İzmir"          
+ [9] "Aydın"           "Denizli"         "Muğla"           "Manisa"         
+[13] "Afyonkarahisar"  "Kütahya"         "Uşak"            "Bursa"          
+[17] "Eskişehir"       "Bilecik"         "Kocaeli"         "Sakarya"        
+[21] "Düzce"           "Bolu"            "Yalova"          "Ankara"         
+[25] "Konya"           "Karaman"         "Antalya"         "Isparta"        
+[29] "Burdur"          "Adana"           "Mersin"          "Hatay"          
+[33] "Kahramanmaraş"   "Osmaniye"        "Kırıkkale"       "Aksaray"        
+[37] "Niğde"           "Nevşehir"        "Kırşehir"        "Kayseri"        
+[41] "Sivas"           "Yozgat"          "Zonguldak"       "Karabük"        
+[45] "Bartın"          "Kastamonu"       "Çankırı"         "Sinop"          
+[49] "Samsun"          "Tokat"           "Çorum"           "Amasya"         
+[53] "Trabzon"         "Ordu"            "Giresun"         "Rize"           
+[57] "Artvin"          "Gümüşhane"       "Erzurum"         "Erzincan"       
+[61] "Bayburt"         "Ağrı"            "Kars"            "Iğdır"          
+[65] "Ardahan"         "Malatya"         "Elazığ"          "Bingöl"         
+[69] "Tunceli"         "Van"             "Muş"             "Bitlis"         
+[73] "Hakkari"         "Gaziantep"       "Adıyaman"        "Kilis"          
+[77] "Şanlıurfa"       "Diyarbakır"      "Mardin"          "Batman"         
+[81] "Şırnak"          "Siirt"           NA               </code></pre>
+</div>
+</div>
+</section>
+<section id="map-from-the-package" class="level1">
+<h1>map from the package</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>turkiye_map <span class="ot">&lt;-</span> <span class="fu">ne_states</span>(<span class="at">country =</span> <span class="st">"turkey"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="city-name-matching-left-side-names-in-the-package-right-side-names-in-the-excel-this-part-was-so-hard-to-do-because-ai-wasnt-helpful-and-i-had-to-do-it-manually" class="level1">
+<h1>city name matching, left side: names in the package, right side: names in the excel, this part was so hard to do because ai wasn’t helpful and i had to do it manually</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>turkiye_map <span class="ot">&lt;-</span> turkiye_map <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name_fixed =</span> <span class="fu">case_when</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Zinguldak"</span>      <span class="sc">~</span> <span class="st">"Zonguldak"</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Kinkkale"</span>       <span class="sc">~</span> <span class="st">"Kırıkkale"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"K. Maras"</span>       <span class="sc">~</span> <span class="st">"Kahramanmaraş"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Adayaman"</span>       <span class="sc">~</span> <span class="st">"Adıyaman"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Afyonkarahisar"</span> <span class="sc">~</span> <span class="st">"Afyonkarahisar"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Diyarbakir"</span>     <span class="sc">~</span> <span class="st">"Diyarbakır"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Nigde"</span>          <span class="sc">~</span> <span class="st">"Niğde"</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Elazig"</span>         <span class="sc">~</span> <span class="st">"Elazığ"</span>,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Gumushane"</span>      <span class="sc">~</span> <span class="st">"Gümüşhane"</span>,</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Sanliurfa"</span>      <span class="sc">~</span> <span class="st">"Şanlıurfa"</span>,</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Sirnak"</span>         <span class="sc">~</span> <span class="st">"Şırnak"</span>,</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Cankiri"</span>        <span class="sc">~</span> <span class="st">"Çankırı"</span>,</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Tekirdag"</span>       <span class="sc">~</span> <span class="st">"Tekirdağ"</span>,</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Aydin"</span>          <span class="sc">~</span> <span class="st">"Aydın"</span>,</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Izmir"</span>          <span class="sc">~</span> <span class="st">"İzmir"</span>,</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Istanbul"</span>       <span class="sc">~</span> <span class="st">"İstanbul"</span>,</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Usak"</span>           <span class="sc">~</span> <span class="st">"Uşak"</span>,</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Iğdir"</span>          <span class="sc">~</span> <span class="st">"Iğdır"</span>,</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Adiyaman"</span>       <span class="sc">~</span> <span class="st">"Adıyaman"</span>,</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Gümüshane"</span>      <span class="sc">~</span> <span class="st">"Gümüşhane"</span>,</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Çankiri"</span>        <span class="sc">~</span> <span class="st">"Çankırı"</span>,</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Mugla"</span>          <span class="sc">~</span> <span class="st">"Muğla"</span>,</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Agri"</span>           <span class="sc">~</span> <span class="st">"Ağrı"</span>,</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Mus"</span>            <span class="sc">~</span> <span class="st">"Muş"</span>,</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Nevsehir"</span>       <span class="sc">~</span> <span class="st">"Nevşehir"</span>,</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Eskisehir"</span>      <span class="sc">~</span> <span class="st">"Eskişehir"</span>,</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Balikesir"</span>      <span class="sc">~</span> <span class="st">"Balıkesir"</span>,</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Kirklareli"</span>     <span class="sc">~</span> <span class="st">"Kırklareli"</span>,</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Kütahya"</span>        <span class="sc">~</span> <span class="st">"Kütahya"</span>,</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Kirsehir"</span>       <span class="sc">~</span> <span class="st">"Kırşehir"</span>,</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Karabük"</span>        <span class="sc">~</span> <span class="st">"Karabük"</span>,</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Bartın"</span>         <span class="sc">~</span> <span class="st">"Bartın"</span>,</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    name <span class="sc">==</span> <span class="st">"Çanakkale"</span>      <span class="sc">~</span> <span class="st">"Çanakkale"</span>,</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span>                     <span class="sc">~</span> name <span class="co"># Diğerlerini olduğu gibi bırak</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="clear-the-gaps" class="level1">
+<h1>clear the gaps</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>map_data_final <span class="ot">&lt;-</span> final_data <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sehir <span class="sc">!=</span> <span class="st">"Türkiye -Turkey"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sehir_join =</span> <span class="fu">str_trim</span>(sehir))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="merging-the-data" class="level1">
+<h1>merging the data</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>final_map_table <span class="ot">&lt;-</span> turkiye_map <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(map_data_final, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"name_fixed"</span> <span class="ot">=</span> <span class="st">"sehir_join"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="drawing-the-map-by-the-colors-red-and-green-because-these-colors-can-be-more-useful-with-the-visualization-of-forests" class="level1">
+<h1>drawing the map by the colors red and green, because these colors can be more useful with the visualization of forests</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> final_map_table) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> orman_orani)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">low =</span> <span class="st">"red"</span>, </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">high =</span> <span class="st">"green"</span>, </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>),</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">na.value =</span> <span class="st">"grey90"</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Türkiye Orman Yoğunluğu Haritası"</span>,</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Orman %"</span>,</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Kaynak: OGM 2024"</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="forests-fires-numbers-and-area-analysis-by-cities" class="level1">
+<h1>FORESTS FIRES NUMBERS AND AREA ANALYSIS BY CITIES</h1>
+</section>
+<section id="this-is-the-part-from-the-previos-data.qmd-file" class="level1">
+<h1>This is the part from the previos data.qmd file</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales) </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>harita_yolu <span class="ot">&lt;-</span> <span class="st">"/Users/zzunb/Downloads/tr-cities.json"</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>adet_yolu <span class="ot">&lt;-</span> <span class="st">"/Users/zzunb/Downloads/illere_gore_yangin_adet_2004-2024.xlsx"</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>alan_yolu <span class="ot">&lt;-</span> <span class="st">"/Users/zzunb/Downloads/illere_gore_yanan_alan_2004-2024.xlsx"</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>tr_map <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(harita_yolu)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>df_adet_ham <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(adet_yolu, <span class="at">skip =</span> <span class="dv">3</span>)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_adet_ham)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Bolge"</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>df_adet_ham <span class="ot">&lt;-</span> df_adet_ham <span class="sc">%&gt;%</span> </span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Bolge)) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="fu">which</span>(Bolge <span class="sc">==</span> <span class="st">"Zonguldak"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Bolge, <span class="sc">~</span> <span class="fu">suppressWarnings</span>(<span class="fu">as.numeric</span>(.))))</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>df_alan_ham <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(alan_yolu, <span class="at">skip =</span> <span class="dv">3</span>)</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_alan_ham)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Bolge"</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>df_alan_ham <span class="ot">&lt;-</span> df_alan_ham <span class="sc">%&gt;%</span> </span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Bolge)) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="fu">which</span>(Bolge <span class="sc">==</span> <span class="st">"Zonguldak"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Bolge, <span class="sc">~</span> <span class="fu">suppressWarnings</span>(<span class="fu">as.numeric</span>(.))))</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>temizle_ve_topla <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>  df_sonuc <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>Bolge <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Toplam-Total"</span>, <span class="st">"DKMPGM"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Bolge =</span> <span class="fu">recode</span>(Bolge, <span class="st">"K.Maraş"</span> <span class="ot">=</span> <span class="st">"Kahramanmaraş"</span>, <span class="st">"Afyon"</span> <span class="ot">=</span> <span class="st">"Afyonkarahisar"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Toplam_21_Yil =</span> <span class="fu">sum</span>(<span class="fu">c_across</span>(<span class="fu">where</span>(is.numeric)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df_sonuc)</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>df_adet <span class="ot">&lt;-</span> <span class="fu">temizle_ve_topla</span>(df_adet_ham) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Toplam_21_Yil))</span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>df_alan <span class="ot">&lt;-</span> <span class="fu">temizle_ve_topla</span>(df_alan_ham) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Toplam_21_Yil))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="time-series-analysisline-graphs" class="level1">
+<h1>1. time series analysis/line graphs</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> df_adet_ham <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Bolge <span class="sc">==</span> <span class="st">"Toplam-Total"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Bolge, <span class="at">names_to =</span> <span class="st">"Yil"</span>, <span class="at">values_to =</span> <span class="st">"Deger"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Yil =</span> <span class="fu">as.numeric</span>(Yil)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Yil)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Yil, <span class="at">y =</span> Deger)) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#E69F00"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2004</span>, <span class="dv">2024</span>, <span class="at">by =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Yillara Gore Toplam Yangin Adeti (2004-2024)"</span>, </span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Mavi kesik cizgi genel artis/azalis egilimini gosterir."</span>,</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Yil"</span>, <span class="at">y =</span> <span class="st">"Yangin Adeti"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+</div>
+</section>
+<section id="merging-map-and-data" class="level1">
+<h1>2. merging map and data</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> df_alan_ham <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Bolge <span class="sc">==</span> <span class="st">"Toplam-Total"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Bolge, <span class="at">names_to =</span> <span class="st">"Yil"</span>, <span class="at">values_to =</span> <span class="st">"Deger"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Yil =</span> <span class="fu">as.numeric</span>(Yil)) <span class="sc">%&gt;%</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Yil)) <span class="sc">%&gt;%</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Yil, <span class="at">y =</span> Deger)) <span class="sc">+</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#D55E00"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">2016</span>, <span class="at">y =</span> <span class="dv">125000</span>, <span class="at">label =</span> <span class="st">"2021 Yili Dev Yanginlari:</span><span class="sc">\n</span><span class="st">~139.503 Hektar"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"curve"</span>, <span class="at">x =</span> <span class="dv">2018</span>, <span class="at">y =</span> <span class="dv">125000</span>, <span class="at">xend =</span> <span class="fl">2020.8</span>, <span class="at">yend =</span> <span class="dv">139500</span>, </span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.3</span>, <span class="st">"cm"</span>)), <span class="at">curvature =</span> <span class="sc">-</span><span class="fl">0.3</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2004</span>, <span class="dv">2024</span>, <span class="at">by =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">"."</span>, <span class="at">decimal.mark =</span> <span class="st">","</span>)) <span class="sc">+</span> </span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Yillara Gore Toplam Yanan Alan (2004-2024)"</span>, <span class="at">x =</span> <span class="st">"Yil"</span>, <span class="at">y =</span> <span class="st">"Hektar Alan"</span>)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="drawing-the-map-data-visualization" class="level1">
+<h1>3.drawing the map-data visualization</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>harita_adet <span class="ot">&lt;-</span> tr_map <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df_adet, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"name"</span> <span class="ot">=</span> <span class="st">"Bolge"</span>))</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> harita_adet) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Toplam_21_Yil), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_sf_coordinates</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">size =</span> <span class="fl">2.2</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">check_overlap =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#00BA38"</span>, <span class="st">"yellow"</span>, <span class="st">"#F8766D"</span>, <span class="st">"#B71C1C"</span>), <span class="at">name =</span> <span class="st">"Toplam Adet"</span>, <span class="at">na.value =</span> <span class="st">"gray90"</span>) <span class="sc">+</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>, <span class="at">r =</span> <span class="dv">20</span>, <span class="at">b =</span> <span class="dv">20</span>, <span class="at">l =</span> <span class="dv">20</span>, <span class="at">unit =</span> <span class="st">"pt"</span>), </span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">15</span>)), </span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">10</span>), <span class="at">lineheight =</span> <span class="fl">1.2</span>), <span class="co"># SatD1r aralD1DD1 eklendi</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.margin =</span> <span class="fu">margin</span>(<span class="at">l =</span> <span class="dv">10</span>, <span class="at">r =</span> <span class="dv">10</span>) </span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Illere Gore Toplam Yangin Sayisi (2004-2024)"</span>, </span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Veriler: OGM</span><span class="sc">\n</span><span class="st">Gri renkteki iller icin veri bulunmamaktadir."</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>harita_alan <span class="ot">&lt;-</span> tr_map <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df_alan, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"name"</span> <span class="ot">=</span> <span class="st">"Bolge"</span>))</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>g2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> harita_alan) <span class="sc">+</span></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Toplam_21_Yil), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_sf_coordinates</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">size =</span> <span class="fl">2.2</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">check_overlap =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#00BA38"</span>, <span class="st">"yellow"</span>, <span class="st">"#F8766D"</span>, <span class="st">"#B71C1C"</span>), </span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">trans =</span> <span class="st">"pseudo_log"</span>, </span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>), </span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"100"</span>, <span class="st">"1.000"</span>, <span class="st">"10.000"</span>, <span class="st">"100.000+"</span>), </span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Toplam Hektar</span><span class="sc">\n</span><span class="st">(Log Skala)"</span>, </span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">na.value =</span> <span class="st">"gray90"</span></span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>, <span class="at">r =</span> <span class="dv">20</span>, <span class="at">b =</span> <span class="dv">20</span>, <span class="at">l =</span> <span class="dv">20</span>, <span class="at">unit =</span> <span class="st">"pt"</span>), </span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">15</span>)), </span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">10</span>), <span class="at">lineheight =</span> <span class="fl">1.2</span>), <span class="co"># SatD1r aralD1DD1 eklendi</span></span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.margin =</span> <span class="fu">margin</span>(<span class="at">l =</span> <span class="dv">10</span>, <span class="at">r =</span> <span class="dv">10</span>) </span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Illere Gore Toplam Yanan Alan (Hektar) (2004-2024)"</span>, </span>
+<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Veriler: OGM</span><span class="sc">\n</span><span class="st">Gri renkteki iller icin veri bulunmamaktadir."</span></span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in st_point_on_surface.sfc(sf::st_zm(x)): st_point_on_surface may not
+give correct results for longitude/latitude data</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in st_point_on_surface.sfc(sf::st_zm(x)): st_point_on_surface may not
+give correct results for longitude/latitude data</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="forest-fires-causing-main-reasons" class="level1">
+<h1>FOREST FIRES CAUSING MAIN REASONS</h1>
+</section>
+<section id="this-is-the-part-from-the-previos-data.qmd-file-1" class="level1">
+<h1>This is the part from the previos data.qmd file</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>harita_yolu <span class="ot">&lt;-</span> <span class="st">"/Users/zzunb/Downloads/tr-cities.json"</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>excel_yolu <span class="ot">&lt;-</span> <span class="st">"/Users/zzunb/Downloads/2022-2024_sebep_adet_toplam.xlsx"</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>tr_map <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(harita_yolu)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>yangin_verisi <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(excel_yolu, <span class="at">skip =</span> <span class="dv">5</span>, <span class="at">n_max =</span> <span class="dv">31</span>, <span class="at">col_names =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Bolge =</span> <span class="dv">1</span>,</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Aniz =</span> <span class="dv">2</span>, <span class="at">Coplu =</span> <span class="dv">3</span>, <span class="at">Avcilik =</span> <span class="dv">4</span>, <span class="at">CobanAtesi =</span> <span class="dv">5</span>, <span class="at">Sigara =</span> <span class="dv">6</span>, <span class="at">Piknik =</span> <span class="dv">7</span>, <span class="at">Diger_Ihmal =</span> <span class="dv">8</span>,</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Teror =</span> <span class="dv">10</span>, <span class="at">Kundaklama =</span> <span class="dv">11</span>, <span class="at">Acma =</span> <span class="dv">12</span>, <span class="at">Diger_Kasit =</span> <span class="dv">13</span>,</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Enerji =</span> <span class="dv">15</span>, <span class="at">Trafik =</span> <span class="dv">16</span>, <span class="at">Diger_Kaza =</span> <span class="dv">17</span>,</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Bilinmeyen =</span> <span class="dv">19</span>, <span class="at">Dogal =</span> <span class="dv">20</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Bolge, <span class="sc">~</span><span class="fu">as.numeric</span>(<span class="fu">ifelse</span>(. <span class="sc">==</span> <span class="st">"-"</span>, <span class="st">"0"</span>, .)))) <span class="sc">%&gt;%</span></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>Bolge <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"DKMPGM"</span>, <span class="st">"Toplam-Total"</span>))</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>yangin_verisi <span class="ot">&lt;-</span> yangin_verisi <span class="sc">%&gt;%</span></span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Bolge =</span> <span class="fu">recode</span>(Bolge, </span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"K.MaraE"</span> <span class="ot">=</span> <span class="st">"KahramanmaraE"</span>,</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Afyon"</span> <span class="ot">=</span> <span class="st">"Afyonkarahisar"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="determining-the-dominant-reason-of-fires" class="level1">
+<h1>1. determining the dominant reason of fires</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>baskin_analiz <span class="ot">&lt;-</span> yangin_verisi <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Bolge, <span class="at">names_to =</span> <span class="st">"Alt_Sebep"</span>, <span class="at">values_to =</span> <span class="st">"Miktar"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Bolge) <span class="sc">%&gt;%</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> Miktar, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 5. AdD1mdaki recode kD1smD1nD1 Eununla gC&lt;ncelle:</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Alt_Sebep =</span> <span class="fu">recode</span>(Alt_Sebep, </span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Bilinmeyen"</span> <span class="ot">=</span> <span class="st">"Sebebi Bilinmeyen"</span>,</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Dogal"</span> <span class="ot">=</span> <span class="st">"Dogal (Yildirim)"</span>,</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Diger_Ihmal"</span> <span class="ot">=</span> <span class="st">"Ihmal(Diger)"</span>, <span class="co"># D0sim deDiEti</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Aniz"</span> <span class="ot">=</span> <span class="st">"Aniz(Ihmal)"</span>,         <span class="co"># D0sim deDiEti</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Diger_Kasit"</span> <span class="ot">=</span> <span class="st">"Diger (Kasit)"</span>,</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Diger_Kaza"</span> <span class="ot">=</span> <span class="st">"Diger (Kaza)"</span>,</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"CobanAtesi"</span> <span class="ot">=</span> <span class="st">"Coban Atesi"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="seting-the-colors-of-the-categories" class="level1">
+<h1>2. seting the colors of the categories</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>renk_paleti <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># D0HMAL - Sadece SarD1 ve AC'D1k Turuncu (KD1rmD1zD1dan tamamen baDD1msD1z)</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Aniz"</span> <span class="ot">=</span> <span class="st">"#FFFFE5"</span>, <span class="st">"Coplu"</span> <span class="ot">=</span> <span class="st">"#FFF7BC"</span>, <span class="st">"Avcilik"</span> <span class="ot">=</span> <span class="st">"#FEE391"</span>, </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coban Atesi"</span> <span class="ot">=</span> <span class="st">"#FEC44F"</span>, <span class="st">"Sigara"</span> <span class="ot">=</span> <span class="st">"#FE9929"</span>, <span class="st">"Piknik"</span> <span class="ot">=</span> <span class="st">"#EC7014"</span>, <span class="st">"Diger (Ihmal)"</span> <span class="ot">=</span> <span class="st">"#CC4C02"</span>,</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># KASIT - Koyu KD1rmD1zD1 ve Bordo TonlarD1</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Teror"</span> <span class="ot">=</span> <span class="st">"#FCBBA1"</span>, <span class="st">"Kundaklama"</span> <span class="ot">=</span> <span class="st">"#FB6A4A"</span>, <span class="st">"Acma"</span> <span class="ot">=</span> <span class="st">"#CB181D"</span>, <span class="st">"Diger (Kasit)"</span> <span class="ot">=</span> <span class="st">"#67000D"</span>,</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># KAZA - Saf Mavi TonlarD1</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Enerji"</span> <span class="ot">=</span> <span class="st">"#DEEBF7"</span>, <span class="st">"Trafik"</span> <span class="ot">=</span> <span class="st">"#6BAED6"</span>, <span class="st">"Diger (Kaza)"</span> <span class="ot">=</span> <span class="st">"#08306B"</span>,</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># SEBEBD0 BD0LD0NMEYEN - Mor</span></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Sebebi Bilinmeyen"</span> <span class="ot">=</span> <span class="st">"#9467BD"</span>,</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># DODAL - YeEil</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dogal (Yildirim)"</span> <span class="ot">=</span> <span class="st">"#2CA02C"</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="drawing-the-final-map-of-the-causes" class="level1">
+<h1>3. drawing the final map of the causes</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>harita_final <span class="ot">&lt;-</span> tr_map <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(baskin_analiz, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"name"</span> <span class="ot">=</span> <span class="st">"Bolge"</span>))</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> harita_final) <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Alt_Sebep), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Il isimleri</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_sf_coordinates</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">size =</span> <span class="fl">2.2</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">check_overlap =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>      <span class="co"># IHMAL GRUBU (Sari/Turuncu)</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Aniz(Ihmal)"</span> <span class="ot">=</span> <span class="st">"#FFFFE5"</span>, <span class="st">"Coplu"</span> <span class="ot">=</span> <span class="st">"#FFF7BC"</span>, <span class="st">"Avcilik"</span> <span class="ot">=</span> <span class="st">"#FEE391"</span>, </span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Coban Atesi"</span> <span class="ot">=</span> <span class="st">"#FEC44F"</span>, <span class="st">"Sigara"</span> <span class="ot">=</span> <span class="st">"#FE9929"</span>, <span class="st">"Piknik"</span> <span class="ot">=</span> <span class="st">"#FB9A29"</span>, </span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Ihmal(Diger)"</span> <span class="ot">=</span> <span class="st">"#EC7014"</span>, </span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>      <span class="co"># KASIT GRUBU (Kirmizi)</span></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Teror"</span> <span class="ot">=</span> <span class="st">"#FEE5D9"</span>, <span class="st">"Kundaklama"</span> <span class="ot">=</span> <span class="st">"#FCAE91"</span>, <span class="st">"Acma"</span> <span class="ot">=</span> <span class="st">"#FB6A4A"</span>, <span class="st">"Diger (Kasit)"</span> <span class="ot">=</span> <span class="st">"#CB181D"</span>,</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>      <span class="co"># KAZA GRUBU (Mavi)</span></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Enerji"</span> <span class="ot">=</span> <span class="st">"#DEEBF7"</span>, <span class="st">"Trafik"</span> <span class="ot">=</span> <span class="st">"#6BAED6"</span>, <span class="st">"Diger (Kaza)"</span> <span class="ot">=</span> <span class="st">"#08306B"</span>,</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>      <span class="co"># DIGERLERI</span></span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Sebebi Bilinmeyen"</span> <span class="ot">=</span> <span class="st">"#9467BD"</span>,</span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Dogal (Yildirim)"</span> <span class="ot">=</span> <span class="st">"#2CA02C"</span></span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>    ), </span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">na.value =</span> <span class="st">"gray90"</span>, </span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Baskin Sebep Detayi"</span></span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>,</span>
+<span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">face =</span> <span class="st">"italic"</span>),</span>
+<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">lineheight =</span> <span class="fl">1.2</span>)</span>
+<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb35-42"><a href="#cb35-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Turkiye Orman Yanginlari Baskin Sebep Analizi (2022-2024)"</span>,</span>
+<span id="cb35-43"><a href="#cb35-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Sari/Turuncu: Ihmal | Kirmizi: Kasit | Mavi: Kaza | Mor: Bilinmeyen | Yesil: Dogal"</span>,</span>
+<span id="cb35-44"><a href="#cb35-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="fu">paste0</span>(</span>
+<span id="cb35-45"><a href="#cb35-45" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Veriler Orman Genel Mudurlugune aittir.</span><span class="sc">\n\n</span><span class="st">"</span>,</span>
+<span id="cb35-46"><a href="#cb35-46" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Ihmal(Diger) Kategorisi: Coban/avci atesi, cocuklarin atesle oynamasi, copluk ve tarla temizligi,piknik,sigara gibi nedenleri kapsar.</span><span class="sc">\n\n</span><span class="st">"</span>,</span>
+<span id="cb35-47"><a href="#cb35-47" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Gri alanlar veri seti disinda kalan illeri temsil eder."</span></span>
+<span id="cb35-48"><a href="#cb35-48" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb35-49"><a href="#cb35-49" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in st_point_on_surface.sfc(sf::st_zm(x)): st_point_on_surface may not
+give correct results for longitude/latitude data</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>#Key Takeaways Data Foundation: In this study, we analyzed the 2004–2024 datasets from the General Directorate of Forestry (OGM) to examine forest density, fire frequency, burned areas, and the underlying causes of forest fires across Türkiye.</p>
+<p>Fire Trends: Our time-series analysis reveals a steady upward trend in the number of fire incidents. However, the most significant finding is the catastrophic spike in 2021, where the burned area reached approximately 139,503 hectares—a historic outlier.</p>
+<p>Regional Risk Profiles: We identified the Aegean and Mediterranean regions as high-risk zones for both fire frequency and severity. In contrast, Central Anatolia and the Black Sea regions are primarily characterized by smaller-scale fires often linked to negligence.</p>
+<p>Dominant Causes: A striking portion of fires remains categorized as “Unknown.” Among identified causes, “Negligence”—including stubble burning, picnics, and discarded cigarettes—emerges as the primary driver of forest loss.</p>
+<p>#1. Forest Distribution and Spatial Density We initiated our analysis by mapping the current state of forest cover across Türkiye. By calculating the ratio of forest area to the total land area for each province, we created a “Forest Density Map.” Our visualization utilizes a red-to-green gradient to highlight the stark contrast between the forest-rich regions of the Black Sea and Western Mediterranean and the arid landscapes of Central and Southeastern Anatolia. This spatial understanding is crucial as it defines the “fuel load” available for potential fire incidents.</p>
+<p>#2. Temporal Evolution of Forest Fires (2004–2024) Over the last two decades, forest fires have evolved from seasonal environmental concerns into a persistent crisis fueled by climate change and human activity. Our time-series analysis shows that while the annual number of fires fluctuates, the general trend is rising. The year 2021 stands out as a devastating “tipping point.” During this period, the total burned area skyrocketed, exceeding the combined totals of several previous years. This suggests that while we are facing more fires, the fires themselves are becoming harder to contain and more destructive.</p>
+<p>#3. Regional Risk and Impact Assessment To better understand the geography of these disasters, we mapped both fire frequency and total burned area. Our findings indicate that provinces like Antalya, Muğla, and İzmir are “hotspots” where fires occur most frequently. However, the impact is not uniform. By using a logarithmic scale for the burned area map, we were able to visualize that a single fire in the Southern coastal belt often results in far greater ecological damage than multiple fires in the North. This is largely due to the flammable nature of Mediterranean vegetation (maquis and pine) and the prevailing wind conditions.</p>
+<p>#4. Root Cause Analysis: The Human Element One of the most critical aspects of our report is the analysis of fire triggers, categorized into Negligence, Intentional, Accident, Natural, and Unknown. We found that “Negligence”—specifically stubble burning (anız) and picnic-related activities—is a dominant force in many provinces. Perhaps more concerning is the high frequency of “Unknown” causes. This lack of data suggests a need for more sophisticated post-fire investigation techniques. In certain regions, energy transmission line failures (Accidents) also appear as significant contributors, indicating that infrastructure maintenance is as vital as public awareness.</p>
+<p>#Recommendations for Fire Prevention Based on our data-driven findings, we propose the following strategies to mitigate future forest loss:</p>
+<p>Public Awareness Campaigns: Since negligence (picnics, cigarettes, stubble burning) is a leading cause, targeted education programs should be implemented, especially during the high-risk summer months.</p>
+<p>Infrastructure Modernization: Our analysis showed “Energy” as a recurring cause. Power lines passing through forest zones must be regularly inspected and modernized to prevent sparks during high winds.</p>
+<p>Early Detection Systems: Investment in AI-powered thermal cameras and drone surveillance is essential for the Mediterranean belt to ensure that fires are caught within the first few minutes of ignition.</p>
+<p>Strict Regulatory Enforcement: Increasing the legal consequences for stubble burning and unauthorized fire use in forest areas can serve as a deterrent.</p>
+<p>Expansion of Post-Fire Investigation: To reduce the “Unknown” category in our data, specialized forensic teams should be established to determine exact fire triggers, allowing for better-targeted prevention policies.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -377,184 +1522,184 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -562,185 +1707,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -748,7 +1869,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Hacettepe IE - EMU 430 - Fall 2024</p>
+<p>Hacettepe IE - EMU430 - Spring 2026</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;
